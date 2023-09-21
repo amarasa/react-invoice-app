@@ -612,10 +612,6 @@ video {
   height: 100vh;
 }
 
-.w-3\/4 {
-  width: 75%;
-}
-
 .w-full {
   width: 100%;
 }
@@ -702,10 +698,6 @@ video {
 .hover\:text-light-orange:hover {
   --tw-text-opacity: 1;
   color: rgb(255 183 3 / var(--tw-text-opacity));
-}
-
-.hover\:underline:hover {
-  text-decoration-line: underline;
 }
 
 @media (min-width: 768px) {
