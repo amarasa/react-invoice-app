@@ -1,13 +1,30 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
+	const navigate = useNavigate();
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
-		// For now, let's just log the username and password
-		console.log(`Username: ${username}, Password: ${password}`);
+		try {
+			const apiUrl = process.env.REACT_APP_API_URL;
+
+			const response = await axios.post(`${apiUrl}/user/login`, {
+				username,
+				password,
+			});
+			if (response.data.success) {
+				localStorage.setItem("token", response.data.token);
+				navigate("/builders"); // Navigate to a protected route
+			} else {
+				// Handle login failure
+			}
+		} catch (error) {
+			console.error("An error occurred while logging in:", error);
+		}
 	};
 
 	return (

@@ -1,0 +1,9 @@
+/* Invoice.module.css */
+@media print {
+    .actionsColumn,
+    .printEmailIcons,
+    .formSection {
+      display: none;
+    }
+  }
+  
